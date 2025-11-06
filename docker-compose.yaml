@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  forecast_service:
+    container_name: silam_forecast_service
+    build: .
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - forecast_cache:/cache
+
+volumes:
+  forecast_cache:
+    driver: local
